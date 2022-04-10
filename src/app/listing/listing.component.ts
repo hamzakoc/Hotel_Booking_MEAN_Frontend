@@ -33,14 +33,12 @@ export class ListingComponent implements OnInit {
       });
   }
 
-
   isloggedInUser(): boolean {
     if (this.storage == 'customer') {
       return true;
     }
     return false;
   }
-  
 
   handleError(err: HttpErrorResponse) {
     let errorMessage = '';

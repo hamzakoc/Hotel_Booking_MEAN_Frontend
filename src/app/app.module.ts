@@ -75,7 +75,8 @@ import { BookingUserComponent } from './booking/booking-user/booking-user.compon
           cache: new InMemoryCache(),
           link: httpLink.create({
             //replace your graphql url http://localhost:3000/graphql
-            uri: 'http://localhost:5000/graphql',
+            // uri: 'http://localhost:5000/graphql',
+            uri: 'https://angular-hotel-booking.herokuapp.com/graphql',
           }),
         };
       },

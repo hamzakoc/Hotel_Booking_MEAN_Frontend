@@ -72,15 +72,20 @@ export class ListingAddComponent implements OnInit {
           created: form.value.created,
         },
       })
-      .subscribe((response) => {
-        console.log(response);
-        this.alertify.success(
-          form.value.listing_title + ' successsfully added'
-        );
-      });
-
-    setTimeout(() => {
-      window.location.href = 'listing-all';
-    }, 3000);
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.alertify.success(
+            form.value.listing_title + ' successsfully added'
+          );
+          setTimeout(() => {
+            window.location.href = 'listing-all';
+          }, 3000);
+        },
+        (err) => {
+          this.alertify.error('' + err);
+          console.log(err);
+        }
+      );
   }
 }
