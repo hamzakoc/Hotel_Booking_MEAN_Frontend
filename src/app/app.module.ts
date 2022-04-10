@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 
@@ -19,6 +20,20 @@ import { FooterComponent } from './auth/components/footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { AdminComponent } from './auth/components/admin/admin.component';
 import { UserComponent } from './auth/components/user/user.component';
+import { ListingFilterPipe } from './listing-filter.pipe';
+import { ListingAddComponent } from './listing/listing-add/listing-add.component';
+import { NavAdminComponent } from './auth/components/nav-admin/nav-admin.component';
+import { ListingAllComponent } from './listing/listing-all/listing-all.component';
+import { BookingComponent } from './booking/booking.component';
+import { BookingAllComponent } from './booking/booking-all/booking-all.component';
+import { BookingFilterPipe } from './booking-filter.pipe';
+import { UsersComponent } from './users/users.component';
+import { UsersAllComponent } from './users/users-all/users-all.component';
+import { UserFilterPipe } from './user-filter.pipe';
+import { NavUserComponent } from './auth/components/nav-user/nav-user.component';
+import { AccountService } from './service/account.service';
+import { LoginGuard } from './auth/components/login/login.guard';
+import { BookingUserComponent } from './booking/booking-user/booking-user.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +47,26 @@ import { UserComponent } from './auth/components/user/user.component';
     MainComponent,
     AdminComponent,
     UserComponent,
+    ListingFilterPipe,
+    ListingAddComponent,
+    NavAdminComponent,
+    ListingAllComponent,
+    BookingComponent,
+    BookingAllComponent,
+    BookingFilterPipe,
+    UsersComponent,
+    UsersAllComponent,
+    UserFilterPipe,
+    NavUserComponent,
+    BookingUserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ApolloModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ApolloModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [
     {
       provide: APOLLO_OPTIONS,
@@ -48,6 +81,8 @@ import { UserComponent } from './auth/components/user/user.component';
       },
       deps: [HttpLink],
     },
+    AccountService,
+    LoginGuard,
   ],
   exports: [LoginComponent, RegisterComponent],
   bootstrap: [AppComponent],

@@ -31,7 +31,7 @@ export class AppComponent {
         query: this.dataService.GET_USER,
       })
       .valueChanges.subscribe((response) => {
-        console.log(response.data.getUser);
+        // console.log(response.data.getUser);
         this.users = response.data.getUser;
       });
   }
@@ -42,7 +42,7 @@ export class AppComponent {
         query: this.dataService.GET_LISTING,
       })
       .valueChanges.subscribe((response) => {
-        console.log(response.data.getListing);
+        // console.log(response.data.getListing);
         this.listing = response.data.getListing;
       });
   }
@@ -53,8 +53,8 @@ export class AppComponent {
         query: this.dataService.GET_BOOKING,
       })
       .valueChanges.subscribe((response) => {
-        console.log('all booking');
-        console.log(response.data.getBooking);
+        // console.log('all booking');
+        // console.log(response.data.getBooking);
         this.booking = response.data.getBooking;
       });
   }
@@ -64,13 +64,12 @@ export class AppComponent {
       .watchQuery<any>({
         query: this.dataService.GET_LISTING_CREATED_BY_ADMIN,
         variables: {
-          type: 'admin', //Replace with your own values read from textbox
-          //title: 'Your title' //Replace with your own values read from textbox
+          type: 'admin', 
         },
       })
       .valueChanges.subscribe((response) => {
-        console.log('all listing by Admin');
-        console.log(response.data.getListingCreatedByAdmin);
+        // console.log('all listing by Admin');
+        // console.log(response.data.getListingCreatedByAdmin);
         this.listingByAdmin = response.data.getListingCreatedByAdmin;
       });
   }
@@ -80,13 +79,12 @@ export class AppComponent {
       .watchQuery<any>({
         query: this.dataService.GET_LISTIN_BY_NAME,
         variables: {
-          listing_title: 'sea face home for rent', //Replace with your own values read from textbox
-          //title: 'Your title' //Replace with your own values read from textbox
+          listing_title: 'sea face home for rent', 
         },
       })
       .valueChanges.subscribe((response) => {
-        console.log('all listing by Name');
-        console.log(response.data.getListingByName);
+        // console.log('all listing by Name');
+        // console.log(response.data.getListingByName);
         this.listingByName = response.data.getListingByName;
       });
   }
@@ -96,34 +94,15 @@ export class AppComponent {
       .watchQuery<any>({
         query: this.dataService.GET_LISTING_BY_CITY,
         variables: {
-          city: 'toronto', //Replace with your own values read from textbox
-          //title: 'Your title' //Replace with your own values read from textbox
+          city: 'toronto', 
         },
       })
       .valueChanges.subscribe((response) => {
-        console.log('all listing by City');
-        console.log(response.data.getListingByCity);
+        // console.log('all listing by City');
+        // console.log(response.data.getListingByCity);
         this.listingByName = response.data.getListingByCity;
       });
   }
 
-  getWithParameter() {
-    this.apolloClient
-      .watchQuery({
-        query: this.dataService.GET_POSTS_OF_AUTHOR,
-        variables: {
-          authorId: 1, //Replace with your own values read from textbox
-          //title: 'Your title' //Replace with your own values read from textbox
-        },
-      })
-      .valueChanges.subscribe((res) => {});
-  }
 
-  submitData() {
-    this.apolloClient
-      .mutate({
-        mutation: this.dataService.UPVOTE_POST,
-      })
-      .subscribe();
-  }
 }

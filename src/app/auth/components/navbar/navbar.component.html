@@ -12,19 +12,29 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['listing']" routerLinkActive="active">Listing</a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['register']" routerLinkActive="active">Register</a>
+                <a *ngIf="isloggedInAdmin()==true" class="nav-link" [routerLink]="['admin']"
+                    routerLinkActive="active">Admin Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['login']" routerLinkActive="active">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['admin']" routerLinkActive="active">Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['user']" routerLinkActive="active">User</a>
+                <a *ngIf="isloggedInUser()==true" class="nav-link" [routerLink]="['user']"
+                    routerLinkActive="active">User Dashboard</a>
             </li>
 
         </ul>
+    </div>
+
+    <div class="px-3 py-2 border-bottom mb-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <div class="text-end">
+                <a [routerLink]="['login']" routerLinkActive="active"><button type="button"
+                        class="btn btn-light text-dark me-2">Login</button></a>
+
+
+                <a [routerLink]="['register']" routerLinkActive="active"> <button type="button"
+                        class="btn btn-primary">Sign-up</button></a>
+            </div>
+        </div>
     </div>
 </nav>
